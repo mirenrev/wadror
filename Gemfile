@@ -6,6 +6,9 @@ gem 'rails', '4.0.2'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 
+################## Byebug
+gem 'byebug', group: [:development, :test]
+
 ############ This is to get Heroku working ##############
 group :development, :test do
   gem 'sqlite3'
