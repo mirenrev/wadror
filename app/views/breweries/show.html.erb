@@ -18,6 +18,14 @@
   <% end %>
 </p>
 
+<p>
+  <% if @brewery.ratings.empty? %>
+  <% else %>
+
+    This brewery has <%= pluralize(@brewery.ratings.count,'rating') %>. Average rating for this brewery is <%= @brewery.average_rating %>
+  <% end %>
+</p>
+
 <%= link_to 'List of beers', beers_path  %>
 <%= link_to 'Edit', edit_brewery_path(@brewery) %> |
 <%= link_to 'Back', breweries_path %>
