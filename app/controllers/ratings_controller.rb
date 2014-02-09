@@ -10,6 +10,7 @@ class RatingsController < ApplicationController
 
   def create
     @rating = Rating.create params.require(:rating).permit(:score, :beer_id)
+    @users = User.all
     
     if @rating.save
       # Tallettaa tehdyn reittauksen sessioon
@@ -23,7 +24,7 @@ class RatingsController < ApplicationController
 
   def destroy
     rating = Rating.find(params[:id])
-    rating.delete
+    rating.delete if current_user == rating.user
     redirect_to :back
   end
 
